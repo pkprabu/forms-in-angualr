@@ -1,0 +1,90 @@
+<h2 class="text-center mt-4">Template Driven Form</h2>
+<div class="container-fluid">
+	<div class="row mt-4">
+		<div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+			<form #form="ngForm" (ngSubmit)="submit(form)">
+				<div class="card">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-sm-4 col-md-4 col-lg-4 mb-2">
+								<div class="form-group">
+									<input ngModel name="firstName" #firstName="ngModel" type="text" class="form-control" placeholder="First Name" required [minlength]="userNameMinLength">
+									<div class="alert alert-danger p-1"
+										*ngIf="(firstName.dirty || firstName.touched) && firstName.invalid">
+										<p class="mb-0" *ngIf="firstName.errors.required">Required field.</p>
+										<p class="mb-0" *ngIf="firstName.errors.minlength">Type atleast {{firstName.errors.minlength.requiredLength}} char</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4 col-md-4 col-lg-4 mb-2">
+								<div class="form-group">
+									<input ngModel name="middleName" #middleName="ngModel" type="text" class="form-control" placeholder="Middle Name">
+</div>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 mb-2">
+									<div class="form-group">
+										<input ngModel name="lastName" #lastName="ngModel" type="text" class="form-control" placeholder="Last Name" required [minlength]="lastNameMinLength">
+										<div class="alert alert-danger p-1"
+											*ngIf="(lastName.dirty || lastName.touched) && lastName.invalid">
+											<p class="mb-0" *ngIf="lastName.errors.required">Required field.</p>
+                      <p class="mb-0" *ngIf="lastName.errors.minlength">Type atleast {{lastName.errors.minlength.requiredLength}} char</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+									<div class="form-group">
+										<input ngModel name="company" #company="ngModel" type="text" class="form-control" placeholder="Company Name" required [minlength]="companyMinLength">
+                    <div class="alert alert-danger p-1"
+											*ngIf="(company.dirty || company.touched) && company.invalid">
+											<p class="mb-0" *ngIf="company.errors.required">Required field.</p>
+                      <p class="mb-0" *ngIf="company.errors.minlength">Type atleast {{company.errors.minlength.requiredLength}} char</p>
+										</div>
+</div>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+										<div class="form-group">
+											<input ngModel name="designation" #designation="ngModel" type="text" class="form-control" placeholder="Designation" required>
+                      <div class="alert alert-danger p-1"
+											*ngIf="(designation.dirty || designation.touched) && designation.invalid">
+											<p class="mb-0" *ngIf="designation.errors.required">Required field.</p>
+										</div>
+</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+											<div class="form-group">
+												<input ngModel name="address" #address="ngModel" type="text" class="form-control" placeholder="Address">
+</div>
+											</div>
+											<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+												<div class="form-group">
+													<input ngModel name="city" #city="ngModel" type="text" class="form-control" placeholder="City">
+</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+													<div class="form-group">
+														<input ngModel name="district" #district="ngModel" type="text" class="form-control" placeholder="District">
+</div>
+													</div>
+													<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+														<div class="form-group">
+															<input ngModel name="pin" #pin="ngModel" type="text" class="form-control" placeholder="PIN">
+</div>
+														</div>
+													</div>
+												</div>
+												<div class="card-footer">
+													<div class="text-center">
+														<button [title]="(form.invalid) ? 'Button Disabled' : ''" type="submit" class="btn btn-outline-success" [disabled]="form.invalid">Submit</button>
+													</div>
+												</div>
+											</div>
+			</form>
+		</div>
+	</div>
+</div>

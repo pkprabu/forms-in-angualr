@@ -1,0 +1,99 @@
+<h2 class="text-center mt-4">Reactive Form</h2>
+<div class="container-fluid">
+	<div class="row mt-4">
+		<div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+			<form [formGroup]="form">
+				<div class="card mb-5">
+					<div class="card-body">
+            <div class="alert alert-primary">
+              <p class="mb-0">* Add a space to check custom validation in first name & last name fields.</p>
+            </div>
+						<div class="row">
+							<div class="col-sm-4 col-md-4 col-lg-4 mb-2">
+								<div class="form-group">
+									<input formControlName="firstName" type="text" class="form-control" placeholder="First Name">
+									<div class="alert alert-danger p-1" *ngIf="(firstName.dirty || firstName.touched) && !firstName.valid">
+										<p class="mb-0" *ngIf="firstName.errors.required">Required field.</p>
+										<p class="mb-0" *ngIf="firstName.errors.minlength">Type atleast {{firstName.errors.minlength.requiredLength}} char</p>
+										<p class="mb-0" *ngIf="firstName.errors.cannotContainSpace">Name cannot contain space.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4 col-md-4 col-lg-4 mb-2">
+								<div class="form-group">
+									<input formControlName="middleName" type="text" class="form-control" placeholder="Middle Name">
+</div>
+								</div>
+								<div class="col-sm-4 col-md-4 col-lg-4 mb-2">
+									<div class="form-group">
+										<input formControlName="lastName" type="text" class="form-control" placeholder="Last Name">
+										<div class="alert alert-danger p-1" *ngIf="(lastName.dirty || lastName.touched) && !lastName.valid">
+											<p class="mb-0" *ngIf="lastName.errors.required">Required field.</p>
+                      <p class="mb-0" *ngIf="lastName.errors.minlength">Type atleast {{lastName.errors.minlength.requiredLength}} char</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+									<div class="form-group">
+										<input formControlName="companyName" type="text" class="form-control" placeholder="Company Name">
+                    <div class="alert alert-danger p-1" *ngIf="(companyName.dirty || companyName.touched) && !companyName.valid">
+											<p class="mb-0" *ngIf="companyName.errors.required">Required field.</p>
+                      <p class="mb-0" *ngIf="companyName.errors.minlength">Type atleast {{companyName.errors.minlength.requiredLength}} char</p>
+										</div>
+</div>
+									</div>
+									<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+										<div class="form-group">
+											<input formControlName="designation" type="text" class="form-control" placeholder="Designation">
+</div>
+										</div>
+									</div>
+                  <div class="row">
+                    <div class="col-sm-12 mb-2">
+                      <div class="form-group">
+                        <textarea formControlName="companyDesc" class="form-control" rows="5" placeholder="Company description..." ></textarea>
+                        <div class="alert alert-danger p-1" *ngIf="(companyDesc.dirty || companyDesc.touched) && !companyDesc.valid">
+											<p class="mb-0" *ngIf="companyDesc.errors.required">Required field.</p>
+											<p class="mb-0" *ngIf="companyDesc.errors.minlength">Type atleast {{companyDesc.errors.minlength.requiredLength}} char</p>
+											<p class="mb-0" *ngIf="companyDesc.errors.maxlength">Only {{companyDesc.errors.maxlength.requiredLength}} chars allowed.</p>
+										</div>
+                      </div>
+                    </div>
+                  </div>
+									<div class="row">
+										<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+											<div class="form-group">
+												<input formControlName="address" type="text" class="form-control" placeholder="Address">
+</div>
+											</div>
+											<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+												<div class="form-group">
+													<input formControlName="city" type="text" class="form-control" placeholder="City">
+</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+													<div class="form-group">
+														<input formControlName="district" type="text" class="form-control" placeholder="District">
+</div>
+													</div>
+													<div class="col-sm-6 col-md-6 col-lg-6 mb-2">
+														<div class="form-group">
+															<input formControlName="pin" type="text" class="form-control" placeholder="PIN">
+</div>
+														</div>
+													</div>
+												</div>
+												<div class="card-footer">
+													<div class="text-center">
+														<button [title]="(form.invalid) ? 'Button Disabled' : ''" type="submit" class="btn btn-outline-success" [disabled]="form.invalid" (click)="log()">Submit</button>
+													</div>
+												</div>
+											</div>
+			</form>
+		</div>
+	</div>
+</div>

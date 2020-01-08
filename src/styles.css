@@ -1,0 +1,9 @@
+/* Add application styles & imports to this file! */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.form-control.ng-pristine.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+body {
+  padding-top: 56px;
+}
