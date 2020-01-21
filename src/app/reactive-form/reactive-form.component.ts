@@ -13,7 +13,7 @@ export class ReactiveForm implements OnInit {
   }
   form = new FormGroup({
     firstName: new FormControl(
-      null, 
+      '', 
       [
         Validators.required, 
         Validators.minLength(4),
@@ -22,14 +22,14 @@ export class ReactiveForm implements OnInit {
     ),
     middleName: new FormControl(),
     lastName: new FormControl(
-      null,
+      '',
       [
         Validators.required,
         Validators.minLength(2)
       ]
     ),
     companyName: new FormControl(
-      null, 
+      '', 
       [
         Validators.required,
         Validators.minLength(4)
@@ -37,7 +37,7 @@ export class ReactiveForm implements OnInit {
     ),
     designation: new FormControl(),
     companyDesc: new FormControl(
-      null,
+      '',
       [
         Validators.required,
         Validators.minLength(50),
